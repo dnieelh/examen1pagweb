@@ -1,0 +1,155 @@
+/* ==========================================================
+   0. RESET GLOBAL Y CONFIGURACIÓN BASE
+   ========================================================== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  color: #333;
+  
+  /* Macroestructura Grid: Main flexible a la izquierda, Aside fijo a la derecha */
+  display: grid;
+  grid-template-columns: 1fr 280px; 
+  grid-template-rows: auto 1fr auto;
+  grid-template-areas:
+    "header header"
+    "main   aside"
+    "footer footer";
+  min-height: 100vh;
+  gap: 20px;
+}
+
+/* ==========================================================
+   1. HEADER, ASIDE Y FOOTER
+   ========================================================== */
+header {
+  grid-area: header;
+  background-color: #2c3e50;
+  color: white;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header ul {
+  display: flex;
+  list-style: none;
+  gap: 15px;
+  margin: 0;
+  padding: 0;
+}
+
+header a, footer a {
+  color: white;
+  text-decoration: none;
+}
+
+aside {
+  grid-area: aside;
+  background-color: #f4f4f4;
+  padding: 1.5rem;
+  border-left: 2px solid #ddd;
+}
+
+footer {
+  grid-area: footer;
+  background-color: #2c3e50;
+  color: white;
+  padding: 1.5rem;
+  text-align: center;
+}
+
+/* ==========================================================
+   2. DISTRIBUCIÓN HORIZONTAL DE SECCIONES (GRID INTERNO)
+   ========================================================== */
+main {
+  grid-area: main;
+  padding: 1rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+/* SECCIÓN PASATIEMPOS: Organiza sus artículos en columnas horizontales */
+#pasatiempos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Distribución automática lado a lado */
+  gap: 20px;
+}
+
+/* El título principal de Pasatiempos abarca todas las columnas */
+#pasatiempos h2 {
+  grid-column: 1 / -1;
+  color: #2c3e50;
+  border-bottom: 2px solid #1abc9c;
+  padding-bottom: 5px;
+  margin: 0;
+}
+
+/* Cada Pasatiempo se convierte en una tarjeta independiente */
+article {
+  background: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+/* Control de dimensiones de imágenes para que no desborden */
+img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover; /* Ajusta la imagen al cuadro sin deformarla */
+  border-radius: 6px;
+  margin-top: 10px;
+}
+
+/* Foto de perfil específica */
+#quien-soy img {
+  max-width: 220px;
+  height: auto;
+  object-fit: contain;
+}
+
+/* ==========================================================
+   3. RESPONSIVIDAD (MEDIA QUERIES)
+   ========================================================== */
+@media (max-width: 900px) {
+  /* Al reducir la pantalla, la barra lateral pasa abajo */
+  body {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "header"
+      "main"
+      "aside"
+      "footer";
+  }
+
+  aside {
+    border-left: none;
+    border-top: 2px solid #ddd;
+  }
+}
+
+@media (max-width: 600px) {
+  header {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  /* En celulares pequeños, los pasatiempos vuelven a 1 sola columna vertical */
+  #pasatiempos {
+    grid-template-columns: 1fr;
+  }
+}

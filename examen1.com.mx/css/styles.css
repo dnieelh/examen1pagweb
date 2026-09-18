@@ -1,0 +1,23 @@
+
+.navbar {
+  display: flex;                /* activa flexbox */
+  justify-content: space-between;  /* logo a la izq, menú a la der */
+  align-items: center;          /* alineados verticalmente */
+  padding: 1rem 2rem;
+}
+
+.menu {
+  display: flex;                /* menú también es flex */
+  gap: 1.5rem;                  /* espacio entre items */
+  list-style: none;
+}
+
+.contenedor {
+  display: flex;
+  gap: 1rem;
+  color: red;
+}
+.columna {
+  flex: 1;  /* las 3 crecen igual y ocupan el mismo ancho */
+  color: red;
+}

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head> 
+<body>
+
+<nav class="navbar">
+    <a href="/" class="logo">Mi sitio</a>
+  <ul class="menu">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="css.html">CSS</a></li>
+    <li><a href="frontend.html">Frontend</a></li>
+    <li><a href="backend.html">Backend</a></li>
+    <li><a href="fullstack.html">FullStack</a></li>
+  </ul>
+</nav>
+
+<style>
+.navbar {
+  display: flex;                /* activa flexbox */
+  justify-content: space-between;  /* logo a la izq, menú a la der */
+  align-items: center;          /* alineados verticalmente */
+  padding: 1rem 2rem;
+}
+
+.menu {
+  display: flex;                /* menú también es flex */
+  gap: 1.5rem;                  /* espacio entre items */
+  list-style: none;
+}
+</style>
+
+<h1>CSS</h1>
+
+<div class="contenedor">
+  <div class="columna">Daniel Antuan</div>
+  <div class="columna">Zamora</div>
+  <div class="columna">Huerta</div>
+</div>
+
+</body>
+</html>
